@@ -29,7 +29,6 @@ public class ServicioPrueba extends Service{
     @Override
     public void onCreate() {
         super.onCreate();
-        android.os.Debug.waitForDebugger();
         // Se crea el binder con el que se vinculará la actividad.
         mBinder = new LocalBinder();
 

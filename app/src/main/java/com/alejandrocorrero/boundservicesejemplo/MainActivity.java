@@ -56,13 +56,12 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
         intent = new Intent(getApplicationContext(), ServicioPrueba.class);
         // Se inicia el servicio (para que se pare automáticamente al
         // desvincular).
-        getApplicationContext().startService(intent);
         // Se vincula el servicio.
         getApplicationContext().bindService(intent, this,
                 Context.BIND_AUTO_CREATE);
 
+        getApplicationContext().startService(intent);
 
-        Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -103,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
         // Se obtiene la referencia al servicio a partir del binder recibido.
         mServicio = ((ServicioPrueba.LocalBinder) binder).getService();
 
+        mServicio.prueba();
         //actualizarIU();
 
     }
